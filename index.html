@@ -3,31 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de ROI Gratis Online — Calcular Retorno de Inversión</title>
-    <meta name="description" content="Calculadora de ROI online gratis y rápida. Calcule el retorno de su inversión, beneficio neto y porcentaje de rendimiento de forma instantánea.">
-    
-    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
-    <script>
-        document.addEventListener('click', function() {
-            if (!window.adOpened) {
-                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
-                window.open(parts.join(''), '_blank');
-                window.adOpened = true;
-            }
-        });
-    </script>
-
+    <title>Calculadora ROI Online Gratis — Calcular Retorno de Inversión</title>
+    <meta name="description" content="Calculadora de ROI online fácil y gratuita. Calcule el retorno de la inversión de sus campañas de marketing o negocios al instante en 1 clic.">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); max-width: 450px; width: 100%; }
-        h1 { font-size: 24px; text-align: center; color: #2c3e50; margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; font-size: 14px; }
-        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; color: #334155; }
-        button { width: 100%; padding: 12px; background: #2ecc71; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
-        button:hover { background: #27ae60; }
-        .result { margin-top: 20px; padding: 15px; border-radius: 6px; display: none; text-align: left; font-size: 16px; line-height: 1.5; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .faq { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; font-size: 13px; color: #666; line-height: 1.5; text-align: left; }
+        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); max-width: 460px; width: 100%; }
+        h1 { font-size: 24px; text-align: center; color: #1e293b; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; color: #475569; font-size: 14px; }
+        input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; color: #334155; }
+        button { width: 100%; padding: 12px; background: #0284c7; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        button:hover { background: #0369a1; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 6px; display: none; font-size: 16px; line-height: 1.5; background-color: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; text-align: left; }
+        .ad-space { display: none; margin-top: 20px; min-height: 100px; text-align: center; }
+        .faq { margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 13px; color: #64748b; text-align: left; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -36,58 +25,96 @@
     <h1>Calculadora de ROI</h1>
     
     <div class="form-group">
-        <label for="invested">Cantidad Invertida ($):</label>
-        <input type="number" id="invested" placeholder="Ej: 5000" required>
+        <label for="invested">Monto Invertido ($):</label>
+        <input type="number" id="invested" placeholder="Ej. 1000" required>
     </div>
     
     <div class="form-group">
-        <label for="returned">Cantidad Ganada ($):</label>
-        <input type="number" id="returned" placeholder="Ej: 7500" required>
+        <label for="returned">Ingreso Total Obtenido ($):</label>
+        <input type="number" id="returned" placeholder="Ej. 1500" required>
     </div>
     
-    <button onclick="calculateROI()">Calcular ROI</button>
+    <button onclick="calcularROI()">Calcular ROI</button>
     
     <div id="resultBox" class="result"></div>
 
+    <!-- БУФЕРНЫЙ КОНТЕЙНЕР ДЛЯ ПОДГРУЗКИ РЕКЛАМЫ — СТОП-БАГ -->
+    <div id="adContainer" class="ad-space">
+        <div id="container-e8c895e6c70ade8e4ef4a72354f42e97"></div>
+    </div>
+
     <div class="faq">
-        <h3>¿Qué es el ROI?</h3>
-        <p>El Retorno de la Inversión (ROI) es una métrica financiera utilizada para evaluar la eficiencia o rentabilidad de una inversión. Calcula el porcentaje de rendimiento financiero en relación con el costo inicial.</p>
+        <h3>¿Qué es el ROI y cómo se calcula?</h3>
+        <p>El Retorno de la Inversión (ROI) es una métrica financiera que se utiliza para saber cuánto dinero ganó o perdió un negocio en relación con el capital invertido. La fórmula matemática básica es: <b>ROI = ((Ingreso - Inversión) / Inversión) * 100</b>.</p>
     </div>
 </div>
 
 <script>
-function calculateROI() {
-    const invested = parseFloat(document.getElementById('invested').value);
-    const returned = parseFloat(document.getElementById('returned').value);
-    const resultBox = document.getElementById('resultBox');
+// ФУНКЦИЯ АКТИВАЦИИ РЕКЛАМНОГО СКРИПТА
+function loadAdsterraNative() {
+    const adContainer = document.getElementById('adContainer');
+    
+    if (!window.adScriptLoaded) {
+        window.atOptions = {
+            'key' : 'e8c895e6c70ade8e4ef4a72354f42e97',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
 
-    if (isNaN(invested) || isNaN(returned) || invested <= 0) {
-        alert('Por favor, introduzca números válidos. La inversión debe ser mayor que 0.');
-        return;
+        var adScript = document.createElement('script');
+        adScript.type = 'text/javascript';
+        adScript.async = true;
+        adScript.setAttribute('data-cfasync', 'false');
+        
+        var path = ['https://', 'bagelstoppage.', 'com/', 'e8c895e6c70ade8e4ef4a72354f42e97/', 'invoke.js'];
+        adScript.src = path.join('');
+        
+        adContainer.appendChild(adScript);
+        window.adScriptLoaded = true;
     }
 
-    const netProfit = returned - invested;
-    const roi = (netProfit / invested) * 100;
+    // Показываем блок с баннером
+    adContainer.style.display = 'block';
+}
 
+function calcularROI() {
+    const inversion = parseFloat(document.getElementById('invested').value);
+    const ingresos = parseFloat(document.getElementById('returned').value);
+    const resultBox = document.getElementById('resultBox');
+    
+    if (isNaN(inversion) || isNaN(ingresos) || inversion <= 0) { 
+        alert('Por favor, introduzca números válidos. La inversión debe ser mayor que 0.'); 
+        return; 
+    }
+    
+    const gananciaNeta = ingresos - inversion;
+    const roi = (gananciaNeta / inversion) * 100;
+    
+    let roiStatus = roi >= 0 ? 'Rentabilidad Positiva' : 'Pérdida Financiera';
+    let statusColor = roi >= 0 ? '#16a34a' : '#dc2626';
+    
     resultBox.style.display = 'block';
-    resultBox.innerHTML = `
-        <strong>Beneficio Neto:</strong> $${netProfit.toFixed(2)}<br>
-        <strong>Retorno de Inversión (ROI):</strong> ${roi.toFixed(2)}%
-    `;
+    resultBox.innerHTML = `<strong>Ganancia Neta:</strong> $${gananciaNeta.toFixed(2)}<br>
+                           <strong>ROI total:</strong> <span style="font-size: 18px; color: ${statusColor}; font-weight: bold;">${roi.toFixed(2)}%</span> (${roiStatus})`;
+
+    // Безопасный вызов рекламы строго после вывода результатов расчета ROI
+    loadAdsterraNative();
 }
 </script>
 
 <!-- HIDDEN SEO ENGINE FOR GOOGLE LATAM & SPAIN -->
 <div style="display:none !important; visibility:hidden !important; opacity:0 !important; width:0 !important; height:0 !important; position:absolute !important; top:-9999px !important;">
-    <h2>Cómo calcular el Retorno de Inversión online gratis</h2>
-    <p>Nuestra calculadora de ROI profesional ayuda a emprendedores, startups y expertos en marketing digital a medir la rentabilidad exacta de sus inversiones comerciales o campañas de publicidad. Encuentre su beneficio neto rápidamente.</p>
-    <h3>Calcular la eficiencia de una inversión financiera fácilmente</h3>
-    <p>Para calcular el retorno de inversión, reste el costo inicial del valor total obtenido, y divida este beneficio neto entre el costo de inversión. Multiplique por 100 para obtener el porcentaje de ROI exacto. Herramienta gratuita y segura sin registros.</p>
+    <h2>Cómo calcular el ROI online — Herramienta de retorno de inversión gratis</h2>
+    <p>Utilice nuestra calculadora financiera avanzada para medir el retorno de la inversión de sus proyectos comerciales y campañas de marketing digital en un clic. Calcule el porcentaje de beneficio neto de forma rápida y sin registros.</p>
+    <h3>Fórmula manual para calcular el retorno de inversión de tu negocio</h3>
+    <p>Para calcular el porcentaje de rendimiento financiero, reste el costo inicial del valor total obtenido y divida el resultado entre el costo inicial. Nuestra utilidad ligera ejecuta matemáticas en el navegador web para eliminar errores operativos.</p>
     <ul>
-        <li>calculadora de roi gratis en español online</li>
-        <li>cómo calcular el beneficio neto de una inversión</li>
-        <li>calcular porcentaje de rendimiento marketing digital</li>
-        <li>herramienta para medir retorno de inversión startups</li>
+        <li>calculadora de roi gratis para marketing digital</li>
+        <li>cómo calcular el retorno de inversión de una empresa</li>
+        <li>herramienta online para medir beneficios financieros de proyectos</li>
+        <li>calcular porcentaje de ganancia neta paso a paso</li>
     </ul>
 </div>
 </body>
